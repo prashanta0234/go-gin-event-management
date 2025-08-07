@@ -1,6 +1,10 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	routes "event-server/api/route"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
 
@@ -9,6 +13,8 @@ func main() {
 	router.Use(gin.Logger())
 
 	router.Use(gin.Recovery())
+
+	routes.SetupRoutes(router)
 
 	router.Run(":8080")
 }
